@@ -19,7 +19,7 @@ secret = "CLIENT_SECRET"
 redirect = "REDIRECT_URI"
 
 my_laptop = "MY_LAPTOP_NAME"
-
+exec_time = "13:20"
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = id, client_secret= secret,
                                                redirect_uri=redirect,
                                                scope=scp))
@@ -35,6 +35,9 @@ def get_devices():
         devices[f"{device['name']}"] = Device(device["name"], device["id"])
     return devices
 
+def get_time():
+    return [time.localtime().tm_hour, time.localtime().tm_min]
+
 active_devices = get_devices()
 
 while my_laptop not in active_devices.keys():
@@ -43,5 +46,14 @@ while my_laptop not in active_devices.keys():
     active_devices = get_devices()
 
 print("DONE!")
+
+now = get_time()
+
+while f"{str(now[0]).rjust(2,'0')}:{str(now[1]).rjust(2,'0')}" != exec_time:
+    print("Not yet")
+    time.sleep(10)
+    now = get_time()
+
+print("Go time!")
 
 sp.transfer_playback(active_devices[my_laptop].id)
