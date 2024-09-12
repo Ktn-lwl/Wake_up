@@ -14,8 +14,7 @@ from spotipy.oauth2 import SpotifyOAuth
 from os import system
 
 id = "APP_CLIENT_ID"
-read_scp = "user-read-playback-state"
-write_scp = "user-modify-playback-state"
+scp = "user-read-playback-state user-modify-playback-state"
 secret = "CLIENT_SECRET"
 redirect = "REDIRECT_URI"
 
@@ -23,7 +22,7 @@ my_laptop = "MY_LAPTOP_NAME"
 
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = id, client_secret= secret,
                                                redirect_uri=redirect,
-                                               scope=read_scp))
+                                               scope=scp))
 
 class Device:
     def __init__(self, name: str, id: str):
@@ -44,7 +43,5 @@ while my_laptop not in active_devices.keys():
     active_devices = get_devices()
 
 print("DONE!")
-
-sp.auth_manager.scope = write_scp
 
 sp.transfer_playback(active_devices[my_laptop].id)
