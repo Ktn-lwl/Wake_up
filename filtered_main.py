@@ -5,6 +5,7 @@
     credentials that shouldn't be leaked. 
 >   Censored stuff is in the form of capitalised strings spaced with underscores
 
+>    UPDATE: Transfers playback to my laptop and starts playing music
 """
 
 import spotipy
@@ -43,3 +44,7 @@ while my_laptop not in active_devices.keys():
     active_devices = get_devices()
 
 print("DONE!")
+
+sp.auth_manager.scope = write_scp
+
+sp.transfer_playback(active_devices[my_laptop].id)
