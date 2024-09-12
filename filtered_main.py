@@ -13,21 +13,33 @@ from spotipy.oauth2 import SpotifyOAuth
 from os import system
 
 id = "APP_CLIENT_ID"
-scp = "user-read-playback-state"
+read_scp = "user-read-playback-state"
+write_scp = "user-modify-playback-state"
 secret = "CLIENT_SECRET"
 redirect = "REDIRECT_URI"
 
-sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = id, client_secret= secret,
-                                               redirect_uri=redirect,
-                                               scope=scp))
-
-device_names = [device["name"] for device in sp.devices()["devices"]]
-
 my_laptop = "MY_LAPTOP_NAME"
 
-while my_laptop not in device_names:
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id = id, client_secret= secret,
+                                               redirect_uri=redirect,
+                                               scope=read_scp))
+
+class Device:
+    def __init__(self, name: str, id: str):
+        self.name = name
+        self.id = id
+
+def get_devices():
+    devices = {}
+    for device in sp.devices()["devices"]:
+        devices[f"{device['name']}"] = Device(device["name"], device["id"])
+    return devices
+
+active_devices = get_devices()
+
+while my_laptop not in active_devices.keys():
     system("spotify")
     time.sleep(5)
-    device_names = [device["name"] for device in sp.devices()["devices"]]
+    active_devices = get_devices()
 
 print("DONE!")
