@@ -5,7 +5,7 @@
     credentials that shouldn't be leaked. 
 >   Censored stuff is in the form of capitalised strings spaced with underscores
 
->    UPDATE: Transfers playback to my laptop and starts playing music
+>    UPDATE: Can wait till given time and start playback on my laptop
 """
 
 import spotipy
