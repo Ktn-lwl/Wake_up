@@ -1,7 +1,7 @@
 """
 >   Learned a bit about using APIs. The code below opens Spotify on my laptop
     if it isn't open already.
->   I'm pretty green behind the ears, so I censored some stuff just in case they're
+>   I'm pretty wet behind the ears, so I censored some stuff just in case they're
     credentials that shouldn't be leaked. 
 >   Censored stuff is in the form of capitalised strings spaced with underscores
 
