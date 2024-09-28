@@ -1,1 +1,1 @@
-python "{PATH_TO_PARENT_DIRECTORY}\main.py"
+python "{PATH_TO_PARENT_DIRECTORY}\filtered_main.py"
