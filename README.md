@@ -33,6 +33,9 @@ If I'm still really groggy and pause the music from my phone:
 
 Updates
 ---
+##### Compromised some keys
+- **Issue** : Accidentally leaked some files with secret credentials in a previous commit.
+- **Fix** : Force reversed to a previous commit. Destroyed leaked credentials and replaced them with new ones.
 ##### Fixed auto-execution bug
 - **Issue** : The code when executed via the filtered_auto.bat file using the task scheduler utility on Windows occasionally halted execution to ask for an Authentication link from the browser page opened. This should only happen the first time the code is executed and generate a .cache file to be used for subsequent executions.
 - **Fix** : Edited filtered_auto.bat to change the working directory before the code is executed.
