@@ -32,14 +32,16 @@ If I'm still really groggy and pause the music from my phone:
 - [x] resume playback with a 2 minute grace period until I close the app, ~~or - for something more interesting - complete a challenge.~~
 
 Updates
- ---
-  - Just added auto execution functionality with Windows via a batch file, *filtered_auto.bat*, that I scheduled to run every morning at 6:55 am using the Windows task scheduler exe.
+---
+##### Fixed auto-execution bug
+- **Issue** : The code when executed via the filtered_auto.bat file using the task scheduler utility on Windows occasionally halted execution to ask for an Authentication link from the browser page opened. This should only happen the first time the code is executed and generate a .cache file to be used for subsequent executions.
+- **Fix** : Edited filtered_auto.bat to change the working directory before the code is executed.
 
 What's Next
 ---
 I need to figure out:
 - how to adjust the system volume automatically
-- how the whole OAuth2 credential thingy works and perhaps automate the whole fetching process so other people can use my code since I'm pretty much done :-).
+- how the whole OAuth2 credential thingy works and perhaps automate the whole fetching process so other people can use my code since I'm pretty much done :)
 
 [^1]: I'll eventually learn how to use the requests module, and maybe update this to be wholly my own.
 [^2]: It seems I will need to either find a way to do this via a batchfile, i.e (finally get round to properly learning Powershell), or with Python or C++ using the windows API. In any case, some studying is requisite, so I'd better get cracking :-)

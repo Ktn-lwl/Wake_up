@@ -43,9 +43,9 @@ def get_devices():
 
 def get_time():
     """
-    Returns a list with the current time (24hr clock) in the format: [hours, minutes]
+    Returns a tuple with the current time (24hr clock) in the format: [hours, minutes]
     """
-    return [time.localtime().tm_hour, time.localtime().tm_min]
+    return (time.localtime().tm_hour, time.localtime().tm_min)
 
 def wait_till(exec_time: str):
     """
@@ -84,9 +84,9 @@ print("GO TIME!")
 
 sp.transfer_playback(active_devices[my_laptop].id)
 
-for i in range(5, 45, 2):
+for i in range(7, 60, 2):
     """
-    Keep checking until 7:45 whether I'm playing music on my laptop, 
+    Keep checking until 7:59 whether I'm playing music on my laptop, 
     and forcing it to play if not
     """
     wait_till(f"07:{str(i).rjust(2,"0")}")
