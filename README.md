@@ -20,7 +20,7 @@ Target Functionality
 ---
  Since I blast music on my laptop in the morning, the code should:
  
-- [x] Check if I've ~~played a song at full blast~~ opened Spotify on my latop and am playing music by 7:05 am.
+- [x] Check if I've ~~played a song at full blast~~ opened Spotify on my laptop and am playing music by 7:05 am.
        
 If I haven't:
 1. [ ] Turn my laptop volume all the way up[^2]
